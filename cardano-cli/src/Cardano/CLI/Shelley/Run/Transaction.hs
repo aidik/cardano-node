@@ -39,9 +39,10 @@ import           Ouroboros.Consensus.Ledger.SupportsMempool (ApplyTxErr)
 import           Ouroboros.Consensus.Shelley.Ledger (ShelleyBlock)
 import           Ouroboros.Consensus.Shelley.Protocol.Crypto (TPraosStandardCrypto)
 
-import           Cardano.CLI.Environment (EnvSocketError, readEnvSocketPath, renderEnvSocketError)
 import           Cardano.CLI.Shelley.Parsers
-import           Cardano.Config.Types
+import           Cardano.CLI.Types
+import           Cardano.CLI.Environment (EnvSocketError, readEnvSocketPath,
+                   renderEnvSocketError)
 
 import           Cardano.Api.Protocol
 import           Cardano.Api.TxSubmit as Api

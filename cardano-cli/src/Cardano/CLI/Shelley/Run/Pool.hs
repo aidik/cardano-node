@@ -22,6 +22,7 @@ import           Cardano.Api.Typed
 import qualified Shelley.Spec.Ledger.Slot as Shelley
 
 import           Cardano.CLI.Shelley.Commands
+import           Cardano.CLI.Types (VerificationKeyFile(..))
 
 
 data ShelleyPoolCmdError

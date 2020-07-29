@@ -44,10 +44,8 @@ import           Cardano.Api.Protocol (Protocol (..))
 import           Cardano.Api.Typed hiding (PoolId)
 
 
-import           Cardano.Config.Types (CertificateFile (..), NodeAddress(..),
-                   NodeHostAddress(..), SigningKeyFile(..), UpdateProposalFile (..))
-
 import           Cardano.CLI.Shelley.Commands
+import           Cardano.CLI.Types
 
 import qualified Cardano.Crypto.Hash as Crypto (Blake2b_256, Hash (..), hashFromBytesAsHex)
 

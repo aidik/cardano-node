@@ -29,24 +29,18 @@ module Cardano.CLI.Shelley.Commands
   , OpCertCounterFile (..)
   , OutputFile (..)
   , ProtocolParamsFile (..)
-  , SigningKeyFile (..)
   , WitnessFile (..)
   , TxBodyFile (..)
   , TxFile (..)
-  , VerificationKeyFile (..)
   , VerificationKeyBase64 (..)
   , GenesisKeyFile (..)
   , MetaDataFile (..)
   , PoolId (..)
   , PoolMetaDataFile (..)
-  , GenesisFile (..)
   , PrivKeyFile (..)
   , BlockId (..)
-  , QueryFilter (..)
-  , StakePoolVerificationKeyHashOrFile (..)
   ) where
 
-import           Data.Set (Set)
 import           Data.Text (Text)
 import           Prelude
 
@@ -55,8 +49,8 @@ import           Cardano.Api.Typed hiding (PoolId)
 
 import           Ouroboros.Consensus.BlockchainTime (SystemStart (..))
 
-import           Cardano.Config.Types (CertificateFile (..), NodeAddress, SigningKeyFile (..),
-                     UpdateProposalFile (..))
+import           Cardano.CLI.Types
+
 import           Shelley.Spec.Ledger.TxData (MIRPot)
 
 --
@@ -263,10 +257,6 @@ newtype BlockId
   = BlockId String -- Probably not a String
   deriving (Eq, Show)
 
-newtype GenesisFile
-  = GenesisFile FilePath
-  deriving (Eq, Show)
-
 newtype GenesisKeyFile
   = GenesisKeyFile FilePath
   deriving (Eq, Show)
@@ -336,23 +326,7 @@ newtype TxFile
   = TxFile FilePath
   deriving (Eq, Show)
 
-newtype VerificationKeyFile
-  = VerificationKeyFile FilePath
-  deriving (Eq, Show)
-
 -- | A raw verification key given in Base64, and decoded into a ByteString.
 newtype VerificationKeyBase64
   = VerificationKeyBase64 String
-  deriving (Eq, Show)
-
--- | UTxO query filtering options.
-data QueryFilter
-  = FilterByAddress !(Set (Address Shelley))
-  | NoFilter
-  deriving (Eq, Show)
-
--- | Either a stake pool verification key hash or verification key file.
-data StakePoolVerificationKeyHashOrFile
-  = StakePoolVerificationKeyHash !(Hash StakePoolKey)
-  | StakePoolVerificationKeyFile !VerificationKeyFile
   deriving (Eq, Show)

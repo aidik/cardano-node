@@ -15,6 +15,7 @@ import           Cardano.Api.TextView (TextViewDescription (..), textShow)
 import           Cardano.Api.Typed
 
 import           Cardano.CLI.Shelley.Parsers
+import           Cardano.CLI.Types
 
 import qualified Shelley.Spec.Ledger.TxData as Shelley
 

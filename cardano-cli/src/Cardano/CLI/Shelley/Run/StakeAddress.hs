@@ -17,6 +17,7 @@ import           Cardano.Api.TextView (TextViewDescription (..))
 import           Cardano.Api.Typed
 
 import           Cardano.CLI.Shelley.Parsers
+import           Cardano.CLI.Types
 
 data ShelleyStakeAddressCmdError
   = ShelleyStakeAddressKeyPairError
