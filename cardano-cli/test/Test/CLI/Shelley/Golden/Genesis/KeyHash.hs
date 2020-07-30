@@ -6,19 +6,19 @@ module Test.CLI.Shelley.Golden.Genesis.KeyHash
 
 import           Cardano.Prelude
 import           Hedgehog (Property, (===))
+import           Test.OptParse as OP
 
 import qualified System.IO as IO
-import qualified Test.OptParse as OP
 
 {- HLINT ignore "Use camelCase" -}
 
 golden_shelleyGenesisKeyHash :: Property
-golden_shelleyGenesisKeyHash = OP.propertyOnce . OP.moduleWorkspace "tmp" $ \tempDir -> do
-  referenceVerificationKey <- OP.noteInputFile "test/Test/golden/shelley/keys/genesis_keys/verification_key"
-  goldenGenesisVerificationKeyHashFile <- OP.noteInputFile "test/Test/golden/shelley/keys/genesis_keys/verification_key.key-hash"
-  genesisVerificationKeyHashFile <- OP.noteTempFile tempDir "key-hash.hex"
+golden_shelleyGenesisKeyHash = propertyOnce . moduleWorkspace "tmp" $ \tempDir -> do
+  referenceVerificationKey <- noteInputFile "test/Test/golden/shelley/keys/genesis_keys/verification_key"
+  goldenGenesisVerificationKeyHashFile <- noteInputFile "test/Test/golden/shelley/keys/genesis_keys/verification_key.key-hash"
+  genesisVerificationKeyHashFile <- noteTempFile tempDir "key-hash.hex"
 
-  genesisVerificationKeyHash <- OP.execCardanoCLI
+  genesisVerificationKeyHash <- execCardanoCLI
       [ "shelley","genesis","key-hash"
       , "--verification-key-file", referenceVerificationKey
       ]
